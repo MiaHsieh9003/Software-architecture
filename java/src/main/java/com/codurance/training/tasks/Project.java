@@ -9,8 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-
-public final class TaskList implements NodeParent {
+public final class Project implements NodeParent{
 
     private static final String QUIT = "quit";
     private final PrintWriter out;
@@ -22,10 +21,10 @@ public final class TaskList implements NodeParent {
     public static void main(String[] args) throws Exception {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         PrintWriter out = new PrintWriter(System.out);
-        new TaskList(in, out).run();
+        new Project(in, out).run();
     }
 
-    public TaskList(BufferedReader reader, PrintWriter writer) {
+    public Project(BufferedReader reader, PrintWriter writer) {
         this.in = reader;
         this.out = writer;
     }
@@ -53,7 +52,7 @@ public final class TaskList implements NodeParent {
         String[] commandRest = NodeParent.split(commandLine);
         checkInput(commandRest[0], commandRest[1]);
     }
-
+    
     @Override
     public void checkInput(String type, String content){
         Orderby orderby = Orderby.valueOf(type);
@@ -83,15 +82,7 @@ public final class TaskList implements NodeParent {
             addTask(projectTask[0], projectTask[1]);
         }
     }
-    public void add(String commandLine,NodeParent node) {
-        String[] subcommandRest = NodeParent.split(commandLine);
-        if (node instanceof Project) {
-            node.addProject(subcommandRest[1]);
-        } else if (node instanceof TaskList) {
-            String[] projectTask = subcommandRest[1].split(" ", 2);
-            node.addTask(projectTask[0], projectTask[1]);
-        }
-    }    
+    
     @Override
     public void show() {
         for (Map.Entry<String, List<Task>> project : tasks.entrySet()) {
@@ -129,7 +120,7 @@ public final class TaskList implements NodeParent {
     }
     
     @Override
-    public void help(){
+    public void help() {
         out.println("Commands:");
         out.println("  show");
         out.println("  add project <project name>");
@@ -138,22 +129,16 @@ public final class TaskList implements NodeParent {
         out.println("  uncheck <task ID>");
         out.println();
     }
-
+    
     @Override
-    public void error(String command){        
+    public void error(String command) {
         out.printf("I don't know what the command \"%s\" is.", command);
         out.println();
     }
 
     @Override
-    public void addTask(String project, String description) {
-        List<Task> projectTasks = tasks.get(project);
-        if (projectTasks == null) {
-            out.printf("Could not find a project with the name \"%s\".", project);
-            out.println();
-            return;
-        }
-        projectTasks.add(new Task(nextId(), description, false));
+    public void addProject(String name) {
+        tasks.put(name, new ArrayList<Task>());
     }
 
     private long nextId() {
