@@ -4,9 +4,6 @@ set -e
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
-# Set JAVA_HOME using set command for Windows
-set JAVA_HOME="C:/Redhat-OpenJDK-x86/java-x86"
-
 mvn package appassembler:assemble
 echo
 echo

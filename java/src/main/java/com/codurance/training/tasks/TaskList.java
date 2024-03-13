@@ -9,13 +9,19 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.codurance.training.tasks.CommandAction.AddCommand;
+import com.codurance.training.tasks.CommandAction.CheckCommand;
+import com.codurance.training.tasks.CommandAction.ErrorCommand;
+import com.codurance.training.tasks.CommandAction.HelpCommand;
+import com.codurance.training.tasks.CommandAction.ShowCommand;
+import com.codurance.training.tasks.CommandAction.UncheckCommand;
 
-public final class TaskList implements NodeParent {
-
+public final class TaskList implements Runnable {
     private static final String QUIT = "quit";
-    private final PrintWriter out;
+
+    private final Map<String, List<Task>> tasks = new LinkedHashMap<>();
     private final BufferedReader in;
-    protected final Map<String, List<Task>> tasks = new LinkedHashMap<>();
+    private final PrintWriter out;
 
     private long lastId = 0;
 
@@ -30,8 +36,7 @@ public final class TaskList implements NodeParent {
         this.out = writer;
     }
 
-    @Override
-    public void run() { 
+    public void run() {
         while (true) {
             out.print("> ");
             out.flush();
@@ -48,33 +53,47 @@ public final class TaskList implements NodeParent {
         }
     }
 
-    @Override
-    public void execute(String commandLine) {
-        String[] commandRest = NodeParent.split(commandLine);
+    private void execute(String commandLine) {
+        String[] commandRest = commandLine.split(" ", 2);
         checkInput(commandRest[0], commandRest[1]);
     }
 
-    @Override
     public void checkInput(String type, String content){
         Orderby orderby = Orderby.valueOf(type);
+        CommandInterface commandInterface;
         if(orderby == Orderby.show){
-            show();
+            commandInterface = new ShowCommand();
+            commandInterface.execute(tasks, "");
         }else if(orderby == Orderby.add){
+            commandInterface = new AddCommand();
             add(content);
         }else if(orderby == Orderby.check){
-            check(content);
+            commandInterface = new CheckCommand();
+            commandInterface.execute(tasks, content);
         }else if(orderby == Orderby.uncheck){
-            uncheck(content);
+            commandInterface = new UncheckCommand();
+            commandInterface.execute(tasks, content);
         }else if(orderby == Orderby.help){
-            help();
+            commandInterface = new HelpCommand();
+            commandInterface.execute(tasks, "");
         }else{
-            error(type);
+            commandInterface = new ErrorCommand();
+            commandInterface.execute(tasks, type);
         }
     }
 
-    @Override
-    public void add(String commandLine) {
-        String[] subcommandRest = NodeParent.split(commandLine);
+    // private void show() {
+    //     for (Map.Entry<String, List<Task>> project : tasks.entrySet()) {
+    //         out.println(project.getKey());
+    //         for (Task task : project.getValue()) {
+    //             out.printf("    [%c] %d: %s%n", (task.isDone() ? 'x' : ' '), task.getId(), task.getDescription());
+    //         }
+    //         out.println();
+    //     }
+    // }
+
+    private void add(String commandLine) {
+        String[] subcommandRest = commandLine.split(" ", 2);
         String subcommand = subcommandRest[0];
         if (subcommand.equals("project")) {
             addProject(subcommandRest[1]);
@@ -83,70 +102,12 @@ public final class TaskList implements NodeParent {
             addTask(projectTask[0], projectTask[1]);
         }
     }
-    public void add(String commandLine,NodeParent node) {
-        String[] subcommandRest = NodeParent.split(commandLine);
-        if (node instanceof Project) {
-            node.addProject(subcommandRest[1]);
-        } else if (node instanceof TaskList) {
-            String[] projectTask = subcommandRest[1].split(" ", 2);
-            node.addTask(projectTask[0], projectTask[1]);
-        }
-    }    
-    @Override
-    public void show() {
-        for (Map.Entry<String, List<Task>> project : tasks.entrySet()) {
-            out.println(project.getKey());
-            for (Task task : project.getValue()) {
-                out.printf("    [%c] %d: %s%n", (task.isDone() ? 'x' : ' '), task.getId(), task.getDescription());
-            }
-            out.println();
-        }
-    }
-    
-    @Override
-    public void uncheck(String idString) {
-        setDone(idString, false);
+
+    private void addProject(String name) {
+        tasks.put(name, new ArrayList<Task>());
     }
 
-    @Override
-    public void check(String idString) {
-        setDone(idString, true);
-    }
-
-    @Override
-    public void setDone(String idString, boolean done) {
-        int id = Integer.parseInt(idString);
-        for (Map.Entry<String, List<Task>> project : tasks.entrySet()) {
-            for (Task task : project.getValue()) {
-                if (task.getId() == id) {
-                    task.setDone(done);
-                    return;
-                }
-            }
-        }
-        out.printf("Could not find a task with an ID of %d.", id);
-        out.println();
-    }
-    
-    @Override
-    public void help(){
-        out.println("Commands:");
-        out.println("  show");
-        out.println("  add project <project name>");
-        out.println("  add task <project name> <task description>");
-        out.println("  check <task ID>");
-        out.println("  uncheck <task ID>");
-        out.println();
-    }
-
-    @Override
-    public void error(String command){        
-        out.printf("I don't know what the command \"%s\" is.", command);
-        out.println();
-    }
-
-    @Override
-    public void addTask(String project, String description) {
+    private void addTask(String project, String description) {
         List<Task> projectTasks = tasks.get(project);
         if (projectTasks == null) {
             out.printf("Could not find a project with the name \"%s\".", project);
@@ -155,6 +116,43 @@ public final class TaskList implements NodeParent {
         }
         projectTasks.add(new Task(nextId(), description, false));
     }
+
+    // private void check(String idString) {
+    //     setDone(idString, true);
+    // }
+
+    // private void uncheck(String idString) {
+    //     setDone(idString, false);
+    // }
+
+    // private void setDone(String idString, boolean done) {
+    //     int id = Integer.parseInt(idString);
+    //     for (Map.Entry<String, List<Task>> project : tasks.entrySet()) {
+    //         for (Task task : project.getValue()) {
+    //             if (task.getId() == id) {
+    //                 task.setDone(done);
+    //                 return;
+    //             }
+    //         }
+    //     }
+    //     out.printf("Could not find a task with an ID of %d.", id);
+    //     out.println();
+    // }
+
+    // private void help() {
+    //     out.println("Commands:");
+    //     out.println("  show");
+    //     out.println("  add project <project name>");
+    //     out.println("  add task <project name> <task description>");
+    //     out.println("  check <task ID>");
+    //     out.println("  uncheck <task ID>");
+    //     out.println();
+    // }
+
+    // private void error(String command) {
+    //     out.printf("I don't know what the command \"%s\" is.", command);
+    //     out.println();
+    // }
 
     private long nextId() {
         return ++lastId;

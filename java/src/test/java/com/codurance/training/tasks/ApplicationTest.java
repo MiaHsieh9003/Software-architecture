@@ -28,7 +28,7 @@ public final class ApplicationTest {
         BufferedReader in = new BufferedReader(new InputStreamReader(new PipedInputStream(inStream)));
         PrintWriter out = new PrintWriter(new PipedOutputStream(outStream), true);
         TaskList taskList = new TaskList(in, out);
-        // applicationThread = new Thread(taskList);
+        applicationThread = new Thread(taskList);
     }
 
     @Before public void
