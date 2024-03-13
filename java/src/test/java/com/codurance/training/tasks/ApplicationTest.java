@@ -105,6 +105,8 @@ public final class ApplicationTest {
     }
 
     private void read(String expectedOutput) throws IOException {
+        inWriter.print("expectedOutput: ");
+        inWriter.println(expectedOutput);
         int length = expectedOutput.length();
         char[] buffer = new char[length];
         outReader.read(buffer, 0, length);

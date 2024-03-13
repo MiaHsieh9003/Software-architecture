@@ -8,15 +8,18 @@ import com.codurance.training.tasks.CommandInterface;
 import com.codurance.training.tasks.Task;
 
 public class HelpCommand implements CommandInterface{
-    private PrintWriter out;
+    private final PrintWriter out;
+    public HelpCommand(PrintWriter out){
+        this.out = out;
+    }
     @Override
-    public void execute(Map<String, List<Task>> tasks, String commandLine){
-        out.println("Commands:");
-        out.println("  show");
-        out.println("  add project <project name>");
-        out.println("  add task <project name> <task description>");
-        out.println("  check <task ID>");
-        out.println("  uncheck <task ID>");
-        out.println();
+    public void execute(Map<String, List<Task>> tasks, String commandLine, PrintWriter out){
+        this.out.println("Commands:");
+        this.out.println("  show");
+        this.out.println("  add project <project name>");
+        this.out.println("  add task <project name> <task description>");
+        this.out.println("  check <task ID>");
+        this.out.println("  uncheck <task ID>");
+        this.out.println();
     }
 }

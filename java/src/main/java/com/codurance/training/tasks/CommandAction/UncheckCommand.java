@@ -6,26 +6,15 @@ import java.util.Map;
 
 import com.codurance.training.tasks.CommandInterface;
 import com.codurance.training.tasks.Task;
+import com.codurance.training.tasks.Application.UncheckApp;
 
 public class UncheckCommand implements CommandInterface{  
-    private PrintWriter out;
     @Override
-    public void execute(Map<String, List<Task>> tasks, String commandLine){
+    public void execute(Map<String, List<Task>> tasks, String commandLine, PrintWriter out){
         String[] commandRest = commandLine.split(" ", 2);
         String command = commandRest[1];
-        setDone(tasks, command, true);
+        UncheckApp uncheckApp = new UncheckApp(tasks, command, out);
+        uncheckApp.setDone(false);
     }
-    private void setDone(Map<String, List<Task>> tasks, String idString, boolean done) {
-        int id = Integer.parseInt(idString);
-        for (Map.Entry<String, List<Task>> project : tasks.entrySet()) {
-            for (Task task : project.getValue()) {
-                if (task.getId() == id) {
-                    task.setDone(done);
-                    return;
-                }
-            }
-        }
-        out.printf("Could not find a task with an ID of %d.", id);
-        out.println();
-    }
+
 }

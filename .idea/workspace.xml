@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab672450-69ab-4912-ad47-c448d9404218" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/AddCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/AddProject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/CheckCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/CheckCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/ErrorCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/ErrorCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/ShowCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/ShowCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/UncheckCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/UncheckCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/TaskList.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/TaskList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/test/java/com/codurance/training/tasks/ApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/test/java/com/codurance/training/tasks/ApplicationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +28,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2dda05lMYlhJKex1Z4sSaLmtyVL" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -30,14 +38,26 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.TaskList.executor": "Profiler#1",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -47,6 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1710340186521</updated>
       <workItem from="1710340188411" duration="148000" />
+      <workItem from="1710369996031" duration="1493000" />
     </task>
     <servers />
   </component>

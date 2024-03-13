@@ -38,6 +38,8 @@ public final class TaskList implements Runnable {
             try {
                 command = in.readLine();
             } catch (IOException e) {
+                // out.print("exception");
+                // out.flush();
                 throw new RuntimeException(e);
             }
             if (command.equals(QUIT)) {
@@ -49,30 +51,36 @@ public final class TaskList implements Runnable {
 
     private void execute(String commandLine) {
         String[] commandRest = commandLine.split(" ", 2);
-        checkInput(commandRest[0], commandRest[1]);
+        if(commandRest.length > 0 && commandRest.length < 2){
+            CommandInterface commandInterface = new ErrorCommand();
+            commandInterface.execute(tasks, commandRest[0], out);
+        }else{
+            checkInput(commandRest[0], commandRest[1]);
+        }        
     }
 
     public void checkInput(String type, String content){
         Orderby orderby = Orderby.valueOf(type);
         CommandInterface commandInterface;
-        if(orderby == Orderby.show){
-            commandInterface = new ShowCommand();
-            commandInterface.execute(tasks, "");
-        }else if(orderby == Orderby.add){
-            commandInterface = new AddCommand();
-            commandInterface.execute(tasks, content);
-        }else if(orderby == Orderby.check){
-            commandInterface = new CheckCommand();
-            commandInterface.execute(tasks, content);
-        }else if(orderby == Orderby.uncheck){
-            commandInterface = new UncheckCommand();
-            commandInterface.execute(tasks, content);
-        }else if(orderby == Orderby.help){
-            commandInterface = new HelpCommand();
-            commandInterface.execute(tasks, "");
+         if(orderby == Orderby.show){
+             commandInterface = new ShowCommand();
+             commandInterface.execute(tasks, "", out);
+         }else if(orderby == Orderby.add){
+             commandInterface = new AddCommand();
+             commandInterface.execute(tasks, content, out);
+         }else if(orderby == Orderby.check){
+             commandInterface = new CheckCommand();
+             commandInterface.execute(tasks, content, out);
+         }else if(orderby == Orderby.uncheck){
+             commandInterface = new UncheckCommand();
+             commandInterface.execute(tasks, content, out);
+         }else
+        if(orderby == Orderby.help){
+            commandInterface = new HelpCommand(out);
+            commandInterface.execute(tasks, "", out);
         }else{
             commandInterface = new ErrorCommand();
-            commandInterface.execute(tasks, type);
+            commandInterface.execute(tasks, type, out);
         }
     }
 
