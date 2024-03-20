@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab672450-69ab-4912-ad47-c448d9404218" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/AddCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/CheckCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/CheckCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/ErrorCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/ErrorCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/HelpCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/ShowCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/ShowCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/UncheckCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/UncheckCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Orderby.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Orderby.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/TaskList.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/TaskList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/test/java/com/codurance/training/tasks/ApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/test/java/com/codurance/training/tasks/ApplicationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +30,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.TaskList.executor": "Profiler#1",
+    "Application.TaskList.executor": "Run",
+    "JUnit.ApplicationTest.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
@@ -67,7 +60,8 @@
       <option name="presentableId" value="Default" />
       <updated>1710340186521</updated>
       <workItem from="1710340188411" duration="148000" />
-      <workItem from="1710369996031" duration="1493000" />
+      <workItem from="1710369996031" duration="3464000" />
+      <workItem from="1710378156256" duration="1108000" />
     </task>
     <servers />
   </component>
