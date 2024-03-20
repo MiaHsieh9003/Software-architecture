@@ -1,4 +1,4 @@
-package main.entity;
+package com.codurance.training.tasks.entity;
 
 public final class ProjectName {
     private final String projectName;

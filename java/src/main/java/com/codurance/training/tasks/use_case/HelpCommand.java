@@ -1,15 +1,10 @@
-package main.use_case;
+package com.codurance.training.tasks.use_case;
 
-import main.io.Output;
 
-import java.io.PrintWriter;
+import com.codurance.training.tasks.io.Output;
+
 
 public class HelpCommand {
-//    private Output out;
-
-//    public HelpCommand(PrintWriter out ){
-//        this.out = out;
-//    }
     public void help() {
         Output out = Output.getInstance();
         out.outputPrintLn("Commands:");

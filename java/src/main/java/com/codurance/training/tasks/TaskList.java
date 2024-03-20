@@ -1,4 +1,8 @@
-package main;
+package com.codurance.training.tasks;
+
+import com.codurance.training.tasks.entity.*;
+import com.codurance.training.tasks.io.Output;
+import com.codurance.training.tasks.use_case.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,38 +13,35 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import main.entity.*;
-import main.use_case.ErrorCommand;
-import main.use_case.HelpCommand;
-import main.use_case.ShowCommand;
-
 public final class TaskList implements Runnable {
     private static final String QUIT = "quit";
 
     private final Map<ProjectName, List<Task>> tasks = new LinkedHashMap<>();
     private final BufferedReader in;
-    private final PrintWriter out;
+//    private final PrintWriter out;
 
-    private long lastId = 0;
+//    private long lastId = 0;
 
     public static void main(String[] args) throws Exception {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        PrintWriter out = new PrintWriter(System.out);
-        new TaskList(in, out).run();
+//        PrintWriter out = new PrintWriter(System.out);
+        new TaskList(in).run();
     }
 
-    public TaskList(BufferedReader reader, PrintWriter writer) {
+    public TaskList(BufferedReader reader) {
         this.in = reader;
-        this.out = writer;
+//        this.out = writer;
     }
 
     public void run() {
         while (true) {
-            out.print("> ");
-            out.flush();
+            Output out = Output.getInstance();
+            out.outputPrint("> ");
+            out.outputflush();
             String command;
             try {
                 command = in.readLine();
+                out.outputPrint(command);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -57,11 +58,12 @@ public final class TaskList implements Runnable {
         ProjectName projectName;
         switch (command) {
             case "show":
-                ShowCommand showCommand = new ShowCommand();
+                ShowCommand showCommand = new ShowCommand(tasks);
                 showCommand.show();
                 break;
             case "add":
-                add(commandRest[1]);
+                AddCommand addCommand = new AddCommand(tasks);
+                addCommand.add(commandRest[1]);
                 break;
             case "check":
                 projectName = new ProjectName(commandRest[1]);
@@ -84,33 +86,34 @@ public final class TaskList implements Runnable {
 
 
 
-    private void add(String commandLine) {
-        String[] subcommandRest = commandLine.split(" ", 2);
-        String subcommand = subcommandRest[0];
-        ProjectName projectName;
-        if (subcommand.equals("project")) {
-            projectName = new ProjectName(subcommandRest[1]);
-            addProject(projectName);
-        } else if (subcommand.equals("task")) {
-            projectName = new ProjectName(subcommandRest[0]);
-            String[] projectTask = subcommandRest[1].split(" ", 2);
-            addTask(projectName, projectTask[1]);
-        }
-    }
-
-    private void addProject(ProjectName name) {
-        tasks.put(name, new ArrayList<Task>());
-    }
-
-    private void addTask(ProjectName project, String description) {
-        List<Task> projectTasks = tasks.get(project);
-        if (projectTasks == null) {
-            out.printf("Could not find a project with the name \"%s\".", project);
-            out.println();
-            return;
-        }
-        projectTasks.add(new Task(nextId(), description, false));
-    }
+//    private void add(String commandLine) {
+//        String[] subcommandRest = commandLine.split(" ", 2);
+//        String subcommand = subcommandRest[0];
+//        ProjectName projectName;
+//        if (subcommand.equals("project")) {
+//            projectName = new ProjectName(subcommandRest[1]);
+//            addProject(projectName);
+//        } else if (subcommand.equals("task")) {
+//            projectName = new ProjectName(subcommandRest[0]);
+//            String[] projectTask = subcommandRest[1].split(" ", 2);
+//            addTask(projectName, projectTask[1]);
+//        }
+//    }
+//
+//    private void addProject(ProjectName name) {
+//        tasks.put(name, new ArrayList<Task>());
+//    }
+//
+//    private void addTask(ProjectName project, String description) {
+//        List<Task> projectTasks = tasks.get(project);
+//        if (projectTasks == null) {
+//            Output out = Output.getInstance();
+//            out.outputPrint("Could not find a project with the name \"%s\"." );
+//            out.outputPrintLn(project.getName());
+//            return;
+//        }
+//        projectTasks.add(new Task(nextId(), description, false));
+//    }
 
     private void check(ProjectName idString) {
         setDone(idString, true);
@@ -130,15 +133,16 @@ public final class TaskList implements Runnable {
                 }
             }
         }
-        out.printf("Could not find a task with an ID of %d.", id);
-        out.println();
+        Output out = Output.getInstance();
+        out.outputPrint("Could not find a task with an ID of %d.");
+        out.outputPrintLn(Integer.toString(id));
     }
 
 
 
 
 
-    private long nextId() {
-        return ++lastId;
-    }
+//    private long nextId() {
+//        return ++lastId;
+//    }
 }

@@ -1,6 +1,6 @@
-package main.use_case;
+package com.codurance.training.tasks.use_case;
 
-import main.io.*;
+import com.codurance.training.tasks.io.Output;
 
 public class ErrorCommand {
 

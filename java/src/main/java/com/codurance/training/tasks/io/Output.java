@@ -1,4 +1,4 @@
-package main.io;
+package com.codurance.training.tasks.io;
 
 import java.io.PrintWriter;
 
@@ -23,4 +23,5 @@ public class Output {
     public void outputPrintLn(String message){
         out.println(message);
     }
+    public void outputflush(){out.flush();}
 }

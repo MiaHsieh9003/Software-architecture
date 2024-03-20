@@ -1,4 +1,4 @@
-package main.entity;
+package com.codurance.training.tasks.entity;
 
 import java.util.List;
 

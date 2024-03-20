@@ -1,16 +1,14 @@
-package main.use_case;
+package com.codurance.training.tasks.use_case;
 
-import java.io.PrintWriter;
+import com.codurance.training.tasks.entity.*;
+import com.codurance.training.tasks.io.Output;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.List;
 
-import main.entity.*;
-import main.io.Output;
 
 public class ShowCommand {
-//    private Output out;
-//    private final PrintWriter out;
     private final Map<ProjectName, List<Task>> tasks;
 //    private final Map<ProjectName, List<Task>> tasks = new LinkedHashMap<>();
     public ShowCommand(Map<ProjectName, List<Task>> tasks){

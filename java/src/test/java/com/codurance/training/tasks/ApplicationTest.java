@@ -1,6 +1,4 @@
-package test;
-
-import main.TaskList;
+package com.codurance.training.tasks;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,7 +27,7 @@ public final class ApplicationTest {
     public ApplicationTest() throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(new PipedInputStream(inStream)));
         PrintWriter out = new PrintWriter(new PipedOutputStream(outStream), true);
-        TaskList taskList = new TaskList(in, out);
+        TaskList taskList = new TaskList(in);
         applicationThread = new Thread(taskList);
     }
 
