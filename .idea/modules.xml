@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/v2_change_java.iml" filepath="$PROJECT_DIR$/.idea/v2_change_java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java/tasks.iml" filepath="$PROJECT_DIR$/java/tasks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/v3_change_java.iml" filepath="$PROJECT_DIR$/.idea/v3_change_java.iml" />
     </modules>
   </component>
 </project>
