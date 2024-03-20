@@ -20,8 +20,6 @@ public final class TaskList implements Runnable {
     private final BufferedReader in;
 //    private final PrintWriter out;
 
-//    private long lastId = 0;
-
     public static void main(String[] args) throws Exception {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 //        PrintWriter out = new PrintWriter(System.out);
@@ -67,11 +65,13 @@ public final class TaskList implements Runnable {
                 break;
             case "check":
                 projectName = new ProjectName(commandRest[1]);
-                check(projectName);
+                CheckCommand checkCommand = new CheckCommand(tasks);
+                checkCommand.check(projectName);
                 break;
             case "uncheck":
                 projectName = new ProjectName(commandRest[1]);
-                uncheck(projectName);
+                CheckCommand checkCommand2 = new CheckCommand(tasks);
+                checkCommand2.uncheck(projectName);
                 break;
             case "help":
                 HelpCommand helpCommand = new HelpCommand();
@@ -83,66 +83,4 @@ public final class TaskList implements Runnable {
                 break;
         }
     }
-
-
-
-//    private void add(String commandLine) {
-//        String[] subcommandRest = commandLine.split(" ", 2);
-//        String subcommand = subcommandRest[0];
-//        ProjectName projectName;
-//        if (subcommand.equals("project")) {
-//            projectName = new ProjectName(subcommandRest[1]);
-//            addProject(projectName);
-//        } else if (subcommand.equals("task")) {
-//            projectName = new ProjectName(subcommandRest[0]);
-//            String[] projectTask = subcommandRest[1].split(" ", 2);
-//            addTask(projectName, projectTask[1]);
-//        }
-//    }
-//
-//    private void addProject(ProjectName name) {
-//        tasks.put(name, new ArrayList<Task>());
-//    }
-//
-//    private void addTask(ProjectName project, String description) {
-//        List<Task> projectTasks = tasks.get(project);
-//        if (projectTasks == null) {
-//            Output out = Output.getInstance();
-//            out.outputPrint("Could not find a project with the name \"%s\"." );
-//            out.outputPrintLn(project.getName());
-//            return;
-//        }
-//        projectTasks.add(new Task(nextId(), description, false));
-//    }
-
-    private void check(ProjectName idString) {
-        setDone(idString, true);
-    }
-
-    private void uncheck(ProjectName idString) {
-        setDone(idString, false);
-    }
-
-    private void setDone(ProjectName idString, boolean done) {
-        int id = Integer.parseInt(idString.getName());
-        for (Map.Entry<ProjectName, List<Task>> project : tasks.entrySet()) {
-            for (Task task : project.getValue()) {
-                if (task.getId() == id) {
-                    task.setDone(done);
-                    return;
-                }
-            }
-        }
-        Output out = Output.getInstance();
-        out.outputPrint("Could not find a task with an ID of %d.");
-        out.outputPrintLn(Integer.toString(id));
-    }
-
-
-
-
-
-//    private long nextId() {
-//        return ++lastId;
-//    }
 }

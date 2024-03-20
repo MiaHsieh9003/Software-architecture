@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c388db4a-1895-4733-9be5-5e5565508575" name="Changes" comment="" />
+    <list default="true" id="c388db4a-1895-4733-9be5-5e5565508575" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/use_case/CheckCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/TaskList.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/TaskList.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +19,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -35,6 +41,7 @@
     "JUnit.ApplicationTest.it_works.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -115,7 +122,7 @@
       <option name="presentableId" value="Default" />
       <updated>1710953711073</updated>
       <workItem from="1710953712154" duration="267000" />
-      <workItem from="1710953990462" duration="4898000" />
+      <workItem from="1710953990462" duration="5273000" />
     </task>
     <servers />
   </component>
