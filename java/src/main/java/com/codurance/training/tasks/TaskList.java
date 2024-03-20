@@ -51,7 +51,7 @@ public final class TaskList implements Runnable {
 
     private void execute(String commandLine) {
         String[] commandRest = commandLine.split(" ", 2);
-        if(commandRest.length == 1){
+        if(commandRest.length > 0 && commandRest.length < 2){
             CommandInterface commandInterface = new ErrorCommand();
             commandInterface.execute(tasks, commandRest[0], out);
         }else{
