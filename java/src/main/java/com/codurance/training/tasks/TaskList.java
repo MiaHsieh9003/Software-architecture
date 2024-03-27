@@ -1,14 +1,13 @@
 package com.codurance.training.tasks;
 
-import com.codurance.training.tasks.entity.*;
-import com.codurance.training.tasks.io.Output;
-import com.codurance.training.tasks.use_case.*;
+import com.codurance.training.tasks.CommandAction.*;
+import com.codurance.training.tasks.Entity.ProjectList;
+import com.codurance.training.tasks.Entity.Task;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,30 +15,32 @@ import java.util.Map;
 public final class TaskList implements Runnable {
     private static final String QUIT = "quit";
 
-    private final Map<ProjectName, List<Task>> tasks = new LinkedHashMap<>();
+    private final ProjectList tasks = new ProjectList();
     private final BufferedReader in;
-//    private final PrintWriter out;
+    private final PrintWriter out;
 
     public static void main(String[] args) throws Exception {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-//        PrintWriter out = new PrintWriter(System.out);
-        new TaskList(in).run();
+        PrintWriter out = new PrintWriter(System.out);
+        new TaskList(in, out).run();
     }
 
-    public TaskList(BufferedReader reader) {
+    public TaskList(BufferedReader reader, PrintWriter writer) {
         this.in = reader;
-//        this.out = writer;
+        this.out = writer;
+    }
+
+    public ProjectList getTasks(){
+        return tasks;
     }
 
     public void run() {
         while (true) {
-            Output out = Output.getInstance();
-            out.outputPrint("> ");
-            out.outputflush();
+            out.print("> ");
+            out.flush();
             String command;
             try {
                 command = in.readLine();
-                out.outputPrint(command);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -50,37 +51,37 @@ public final class TaskList implements Runnable {
         }
     }
 
-    private void execute(String commandLine) {
+
+    public void execute(String commandLine){
         String[] commandRest = commandLine.split(" ", 2);
-        String command = commandRest[0];
-        ProjectName projectName;
-        switch (command) {
+        CommandInterface commandInterface;
+        out.println("in checkInput");
+        switch (commandRest[0]) {
             case "show":
-                ShowCommand showCommand = new ShowCommand(tasks);
-                showCommand.show();
+                commandInterface = new ShowCommand();
+                commandInterface.execute(tasks, "", out);
                 break;
             case "add":
-                AddCommand addCommand = new AddCommand(tasks);
-                addCommand.add(commandRest[1]);
+                commandInterface = new AddCommand();
+                commandInterface.execute(tasks, commandRest[1], out);
                 break;
             case "check":
-                projectName = new ProjectName(commandRest[1]);
-                CheckCommand checkCommand = new CheckCommand(tasks);
-                checkCommand.check(projectName);
+                commandInterface = new CheckCommand();
+                commandInterface.execute(tasks, commandRest[1], out);
                 break;
             case "uncheck":
-                projectName = new ProjectName(commandRest[1]);
-                CheckCommand checkCommand2 = new CheckCommand(tasks);
-                checkCommand2.uncheck(projectName);
+                commandInterface = new UncheckCommand();
+                commandInterface.execute(tasks, commandRest[1], out);
                 break;
             case "help":
-                HelpCommand helpCommand = new HelpCommand();
-                helpCommand.help();
+                commandInterface = new HelpCommand(out);
+                commandInterface.execute(tasks, "", out);
                 break;
             default:
-                ErrorCommand errorCommand = new ErrorCommand();
-                errorCommand.error(command);
+                commandInterface = new ErrorCommand();
+                commandInterface.execute(tasks, commandRest[0], out);
                 break;
         }
     }
+
 }

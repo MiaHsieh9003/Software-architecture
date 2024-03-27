@@ -27,7 +27,7 @@ public final class ApplicationTest {
     public ApplicationTest() throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(new PipedInputStream(inStream)));
         PrintWriter out = new PrintWriter(new PipedOutputStream(outStream), true);
-        TaskList taskList = new TaskList(in);
+        TaskList taskList = new TaskList(in, out);
         applicationThread = new Thread(taskList);
     }
 
@@ -105,6 +105,8 @@ public final class ApplicationTest {
     }
 
     private void read(String expectedOutput) throws IOException {
+        inWriter.print("expectedOutput: ");
+        inWriter.println(expectedOutput);
         int length = expectedOutput.length();
         char[] buffer = new char[length];
         outReader.read(buffer, 0, length);

@@ -4,8 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c388db4a-1895-4733-9be5-5e5565508575" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/use_case/CheckCommand.java" afterDir="false" />
+    <list default="true" id="ab672450-69ab-4912-ad47-c448d9404218" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Application/AddApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Application/CheckApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Application/CheckApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Application/ShowApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Application/ShowApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Application/UncheckApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Application/UncheckApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/AddCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/CheckCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/CheckCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/ErrorCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/ErrorCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/ShowCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/ShowCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/UncheckCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/UncheckCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/CommandInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Orderby.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Task.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/TaskList.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/TaskList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,10 +40,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
+  &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="2dxdYT5zgRAMXwJ7KnroIraEnyk" />
+  <component name="ProjectId" id="2dda05lMYlhJKex1Z4sSaLmtyVL" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -38,73 +55,28 @@
   "keyToString": {
     "Application.TaskList.executor": "Run",
     "JUnit.ApplicationTest.executor": "Run",
-    "JUnit.ApplicationTest.it_works.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "hw2",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/OneDrive - stu.ntue.edu.tw/graduate1/software_architecture/v4_change_java_from_v2/java/src/main/java/com/codurance/training/tasks/Entity",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.ApplicationTest">
-    <configuration name="TaskList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.codurance.training.tasks.TaskList" />
-      <module name="tasks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.codurance.training.tasks.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ApplicationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tasks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.codurance.training.tasks.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.codurance.training.tasks" />
-      <option name="MAIN_CLASS_NAME" value="com.codurance.training.tasks.ApplicationTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ApplicationTest.it_works" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tasks" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.codurance.training.tasks.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.codurance.training.tasks" />
-      <option name="MAIN_CLASS_NAME" value="com.codurance.training.tasks.ApplicationTest" />
-      <option name="METHOD_NAME" value="it_works" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.ApplicationTest" />
-        <item itemvalue="JUnit.ApplicationTest.it_works" />
-        <item itemvalue="Application.TaskList" />
-      </list>
-    </recent_temporary>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\OneDrive - stu.ntue.edu.tw\graduate1\software_architecture\v4_change_java_from_v2\java\src\main\java\com\codurance\training\tasks\Entity" />
+    </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -116,13 +88,16 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c388db4a-1895-4733-9be5-5e5565508575" name="Changes" comment="" />
-      <created>1710953711073</created>
+      <changelist id="ab672450-69ab-4912-ad47-c448d9404218" name="Changes" comment="" />
+      <created>1710340186521</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1710953711073</updated>
-      <workItem from="1710953712154" duration="267000" />
-      <workItem from="1710953990462" duration="5273000" />
+      <updated>1710340186521</updated>
+      <workItem from="1710340188411" duration="148000" />
+      <workItem from="1710369996031" duration="3464000" />
+      <workItem from="1710378156256" duration="1108000" />
+      <workItem from="1711517049995" duration="9714000" />
+      <workItem from="1711540945232" duration="10115000" />
     </task>
     <servers />
   </component>
