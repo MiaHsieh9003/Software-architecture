@@ -1,32 +1,33 @@
 package com.codurance.training.tasks.CommandAction;
 
 import java.io.PrintWriter;
-// import java.util.ArrayList;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.List;
 
+import com.codurance.training.tasks.Controller.AddController;
 import com.codurance.training.tasks.Entity.Project;
+import com.codurance.training.tasks.Entity.ProjectList;
+import com.codurance.training.tasks.Entity.ProjectName;
 import com.codurance.training.tasks.Entity.Task;
-import com.codurance.training.tasks.TaskList;
 
 public class AddCommand implements CommandInterface{
     @Override
-    public void execute(Map<String, List<Task>> tasks, String commandLine, PrintWriter out){
-        Project project = new Project();
-        List<Task> allTasks = project.getTasks();
-        add();
+    public void execute(ProjectList projectList, String commandLine, PrintWriter out){
+        AddController addController = new AddController();
+        addController.add(commandLine, projectList, out);
     }
 
-    public void add(String commandLine, PrintWriter out){
-        String[] subcommandRest = commandLine.split(" ", 2);
-        String subcommand = subcommandRest[0];
-        if (subcommand.equals("project")) {
-            addProject(subcommandRest[1]);
-        } else if (subcommand.equals("task")) {
-            String[] projectTask = subcommandRest[1].split(" ", 2);
-            addTask(projectTask[0], projectTask[1], out);
+    public void addTask(ProjectName projectName, String description, ProjectList projectList, PrintWriter out) {
+        Project findProject = projectList.findProject(projectName);
+        if (findProject == null) {
+            out.printf("Could not find a project with the name \"%s\".", projectName.getName());
+            out.println();
+            return;
         }
+        findProject.addTask(findProject.nextId(), description, false);
     }
-
+    public void addProject(ProjectName name, ProjectList projectList) {
+        projectList.addOneProject(name,new ArrayList<Task>());
+    }
 }

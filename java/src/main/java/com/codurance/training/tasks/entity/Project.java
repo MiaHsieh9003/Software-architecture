@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Project {
-    private final ProjectList tasks;
+    private final List<Task> tasks;
     private final ProjectName pName;
     private long lastId = 0;
     public Project(ProjectName pName, List<Task> tasks){
@@ -20,18 +20,12 @@ public class Project {
     public List<Task> getTasks() {
         return tasks;
     }
-
-    private long nextId() {
+    public void addTask(long id, String description, boolean done){
+        tasks.add(new Task(id, description, done));
+    }
+    public long nextId() {
         return ++this.lastId;
     }
 
-    private void addTask(ProjectName project, String description, PrintWriter out) {
-        Project findProject = tasks.findProject(project);
-        if (findProject == null) {
-            out.printf("Could not find a project with the name \"%s\".", project);
-            out.println();
-            return;
-        }
-        findProject.addTask(new Task(nextId(), description, false));
-    }
+
 }

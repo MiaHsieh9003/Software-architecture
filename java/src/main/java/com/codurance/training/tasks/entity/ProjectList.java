@@ -22,9 +22,7 @@ public class ProjectList {
         }
         return null;
     }
-    public void addProject(ProjectName name, ArrayList<Task> tasks) {
-        Project project = new Project(name, tasks);
-        projects.add(project);
+    public void addOneProject(ProjectName pName, List<Task> tasks){
+        projects.add(new Project(pName, tasks));
     }
-    public
 }

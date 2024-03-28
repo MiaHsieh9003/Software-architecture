@@ -5,23 +5,26 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
+import com.codurance.training.tasks.Entity.Project;
+import com.codurance.training.tasks.Entity.ProjectList;
 import com.codurance.training.tasks.Entity.Task;
 
 public class CheckApp {
     private final String idString;    
-    private final Map<String, List<Task>> tasks ;
+    private final ProjectList projectList ;
     private final PrintWriter out;
 
-    public CheckApp(Map<String, List<Task>> tasks, String idString, PrintWriter out){
+    public CheckApp(ProjectList projectList, String idString, PrintWriter out){
         this.idString = idString;
-        this.tasks = tasks;
+        this.projectList = projectList;
         this.out = out;
     }
 
     public void setDone(boolean done) {
         int id = Integer.parseInt(idString);
-        for (Map.Entry<String, List<Task>> project : tasks.entrySet()) {
-            for (Task task : project.getValue()) {
+        List<Project> allProject = projectList.getProjects();
+        for (Project project : allProject) {
+            for (Task task : project.getTasks()) {
                 if (task.getId() == id) {
                     task.setDone(done);
                     return;
