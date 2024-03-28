@@ -22,9 +22,11 @@ public class CheckApp {
 
     public void setDone(boolean done) {
         int id = Integer.parseInt(idString);
-        List<Project> allProject = projectList.getProjects();
-        for (Project project : allProject) {
-            for (Task task : project.getTasks()) {
+        List<Project> projects = projectList.getProjects();
+        List<Task> tasksInProject;
+        for (Project project : projects) {
+            tasksInProject = project.getTasks();
+            for (Task task : tasksInProject) {
                 if (task.getId() == id) {
                     task.setDone(done);
                     return;

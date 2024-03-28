@@ -55,7 +55,7 @@ public final class TaskList implements Runnable {
     public void execute(String commandLine){
         String[] commandRest = commandLine.split(" ", 2);
         CommandInterface commandInterface;
-        out.println("in checkInput");
+
         switch (commandRest[0]) {
             case "show":
                 commandInterface = new ShowCommand();

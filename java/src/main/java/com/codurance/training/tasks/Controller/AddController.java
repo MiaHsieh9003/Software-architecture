@@ -1,7 +1,6 @@
 package com.codurance.training.tasks.Controller;
 
 import com.codurance.training.tasks.CommandAction.AddCommand;
-import com.codurance.training.tasks.Entity.Project;
 import com.codurance.training.tasks.Entity.ProjectList;
 import com.codurance.training.tasks.Entity.ProjectName;
 

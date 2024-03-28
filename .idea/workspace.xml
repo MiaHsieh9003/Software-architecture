@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab672450-69ab-4912-ad47-c448d9404218" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Controller/AddController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Application/CheckApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Application/CheckApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Application/ShowApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Application/ShowApp.java" afterDir="false" />
@@ -17,8 +16,10 @@
       <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/HelpCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/ShowCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/ShowCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/UncheckCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/CommandAction/UncheckCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/entity/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/entity/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/entity/ProjectList.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/entity/ProjectList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Controller/AddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Controller/AddController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Entity/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Entity/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Entity/ProjectList.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/Entity/ProjectList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/TaskList.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/codurance/training/tasks/TaskList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +97,7 @@
       <workItem from="1710378156256" duration="1108000" />
       <workItem from="1711517049995" duration="9714000" />
       <workItem from="1711540945232" duration="10115000" />
-      <workItem from="1711577619553" duration="5696000" />
+      <workItem from="1711577619553" duration="17812000" />
     </task>
     <servers />
   </component>

@@ -1,12 +1,11 @@
 package com.codurance.training.tasks.Application;
 
-import java.io.PrintWriter;
-import java.util.List;
-import java.util.Map;
-
 import com.codurance.training.tasks.Entity.Project;
 import com.codurance.training.tasks.Entity.ProjectList;
 import com.codurance.training.tasks.Entity.Task;
+
+import java.io.PrintWriter;
+import java.util.List;
 
 public class UncheckApp {
     private final String idString;    

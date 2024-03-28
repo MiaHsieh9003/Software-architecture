@@ -20,7 +20,7 @@ public class ShowApp {
     public void  show(){
         List<Project> allProject = projectList.getProjects();
         for (Project project : allProject) {
-            out.println(project.getProjectName());
+            out.println(project.getProjectName().getName());
             for (Task task : project.getTasks()) {
                 out.printf("    [%c] %d: %s%n", (task.isDone() ? 'x' : ' '), task.getId(), task.getDescription());
             }

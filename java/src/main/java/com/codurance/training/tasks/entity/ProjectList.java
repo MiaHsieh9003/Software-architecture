@@ -6,6 +6,7 @@ import java.util.List;
 
 public class ProjectList {
     private final List<Project> projects;
+    private long lastId = 0;
 
     public ProjectList(){
         this.projects = new ArrayList<>();
@@ -16,7 +17,7 @@ public class ProjectList {
     }
     public Project findProject(ProjectName projectName){
         for(Project project: projects){
-            if (project.getProjectName().equals(projectName)) {
+            if (project.getProjectName().getName().equals(projectName.getName())) { //equals只能用來比對object的address是不是來自同一個網址
                 return project;
             }
         }
@@ -24,5 +25,8 @@ public class ProjectList {
     }
     public void addOneProject(ProjectName pName, List<Task> tasks){
         projects.add(new Project(pName, tasks));
+    }
+    public long nextId() {
+        return ++this.lastId;
     }
 }
