@@ -41,6 +41,7 @@ public final class TaskList implements Runnable {
             String command;
             try {
                 command = in.readLine();
+//                System.out.println(command);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

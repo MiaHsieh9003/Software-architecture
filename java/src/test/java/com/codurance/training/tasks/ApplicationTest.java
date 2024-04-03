@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,12 +22,12 @@ public final class ApplicationTest {
     private final PrintWriter inWriter = new PrintWriter(inStream, true);
 
     private final PipedInputStream outStream = new PipedInputStream();
-    private final BufferedReader outReader = new BufferedReader(new InputStreamReader(outStream));
+    private final BufferedReader outReader = new BufferedReader(new InputStreamReader(outStream, StandardCharsets.UTF_8));
 
     private Thread applicationThread;
 
     public ApplicationTest() throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(new PipedInputStream(inStream)));
+        BufferedReader in = new BufferedReader(new InputStreamReader(new PipedInputStream(inStream), StandardCharsets.UTF_8));
         PrintWriter out = new PrintWriter(new PipedOutputStream(outStream), true);
         TaskList taskList = new TaskList(in, out);
         applicationThread = new Thread(taskList);
@@ -105,8 +107,8 @@ public final class ApplicationTest {
     }
 
     private void read(String expectedOutput) throws IOException {
-        inWriter.print("expectedOutput: ");
-        inWriter.println(expectedOutput);
+//        inWriter.print("expectedOutput: ");
+//        inWriter.println(expectedOutput);
         int length = expectedOutput.length();
         char[] buffer = new char[length];
         outReader.read(buffer, 0, length);
