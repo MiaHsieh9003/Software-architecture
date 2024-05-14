@@ -1,12 +1,9 @@
 package com.codurance.training.tasks.CommandAction;
 
 import java.io.PrintWriter;
-import java.util.List;
-import java.util.Map;
 
 import com.codurance.training.tasks.Application.UncheckApp;
-import com.codurance.training.tasks.Entity.ProjectList;
-import com.codurance.training.tasks.Entity.Task;
+import com.codurance.training.tasks.Entity.Entity.ProjectList;
 
 public class UncheckCommand implements CommandInterface{  
     @Override

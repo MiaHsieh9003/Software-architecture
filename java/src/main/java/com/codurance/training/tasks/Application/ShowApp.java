@@ -2,11 +2,10 @@ package com.codurance.training.tasks.Application;
 
 import java.io.PrintWriter;
 import java.util.List;
-import java.util.Map;
 
-import com.codurance.training.tasks.Entity.Project;
-import com.codurance.training.tasks.Entity.ProjectList;
-import com.codurance.training.tasks.Entity.Task;
+import com.codurance.training.tasks.Entity.Entity.Project;
+import com.codurance.training.tasks.Entity.Entity.ProjectList;
+import com.codurance.training.tasks.Entity.Entity.Task;
 
 public class ShowApp {
     private final ProjectList projectList ;
@@ -22,7 +21,7 @@ public class ShowApp {
         for (Project project : allProject) {
             out.println(project.getProjectName().getName());
             for (Task task : project.getTasks()) {
-                out.printf("    [%c] %d: %s%n", (task.isDone() ? 'x' : ' '), task.getId(), task.getDescription());
+                out.printf("    [%c] %s: %s%n", (task.isDone() ? 'x' : ' '), task.getID().toString(), task.getDescription());
             }
             out.println();
         }

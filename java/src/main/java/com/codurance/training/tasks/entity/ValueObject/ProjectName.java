@@ -1,6 +1,6 @@
-package com.codurance.training.tasks.Entity;
+package com.codurance.training.tasks.Entity.ValueObject;
 
-public final class ProjectName {
+public final class ProjectName implements ValueObject {
     private final String projectName;
 
     public ProjectName(String name){

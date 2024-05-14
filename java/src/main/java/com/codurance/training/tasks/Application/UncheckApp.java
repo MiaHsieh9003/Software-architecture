@@ -1,11 +1,13 @@
 package com.codurance.training.tasks.Application;
 
-import com.codurance.training.tasks.Entity.Project;
-import com.codurance.training.tasks.Entity.ProjectList;
-import com.codurance.training.tasks.Entity.Task;
+import com.codurance.training.tasks.Entity.Entity.Project;
+import com.codurance.training.tasks.Entity.Entity.ProjectList;
+import com.codurance.training.tasks.Entity.Entity.Task;
+import com.codurance.training.tasks.Entity.ValueObject.TaskID;
 
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Objects;
 
 public class UncheckApp {
     private final String idString;    
@@ -19,11 +21,11 @@ public class UncheckApp {
     }
 
     public void setDone( boolean done) {
-        int id = Integer.parseInt(idString);
+        long id = Integer.parseInt(idString);
         List<Project> allProject = projectList.getProjects();
         for (Project project : allProject) {
             for (Task task : project.getTasks()) {
-                if (task.getId() == id) {
+                if (Objects.equals(task.getID(), TaskID.of(id))) {
                     task.setDone(done);
                     return;
                 }

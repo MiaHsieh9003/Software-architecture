@@ -3,11 +3,12 @@ package com.codurance.training.tasks.Application;
 
 import java.io.PrintWriter;
 import java.util.List;
-import java.util.Map;
+import java.util.Objects;
 
-import com.codurance.training.tasks.Entity.Project;
-import com.codurance.training.tasks.Entity.ProjectList;
-import com.codurance.training.tasks.Entity.Task;
+import com.codurance.training.tasks.Entity.Entity.Project;
+import com.codurance.training.tasks.Entity.Entity.ProjectList;
+import com.codurance.training.tasks.Entity.Entity.Task;
+import com.codurance.training.tasks.Entity.ValueObject.TaskID;
 
 public class CheckApp {
     private final String idString;    
@@ -21,13 +22,13 @@ public class CheckApp {
     }
 
     public void setDone(boolean done) {
-        int id = Integer.parseInt(idString);
+        long id = Integer.parseInt(idString);
         List<Project> projects = projectList.getProjects();
         List<Task> tasksInProject;
         for (Project project : projects) {
             tasksInProject = project.getTasks();
             for (Task task : tasksInProject) {
-                if (task.getId() == id) {
+                if (Objects.equals(task.getID(), TaskID.of(id))) {
                     task.setDone(done);
                     return;
                 }

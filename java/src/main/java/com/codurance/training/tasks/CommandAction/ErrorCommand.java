@@ -1,7 +1,7 @@
 
 package com.codurance.training.tasks.CommandAction;
 
-import com.codurance.training.tasks.Entity.ProjectList;
+import com.codurance.training.tasks.Entity.Entity.ProjectList;
 
 import java.io.PrintWriter;
 
